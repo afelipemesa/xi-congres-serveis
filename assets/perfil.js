@@ -7,7 +7,7 @@
     ca: { and: "i", date: S.date || "", congress: "XI Congrés de Geografia dels Serveis de l’AGE", nav: "Idioma",
           roles: { organitzador: "Comitè organitzador", cientific: "Comitè científic", ponent: "Ponent", assistent: "Assistent" },
           talk1: "La meva comunicació", talkN: "Les meves comunicacions", lead: "Autoria principal", coauthor: "Coautoria",
-          conf: "La meva conferència", chair: "Modera", contact: "Coneix-me", email: "Escriu-me", linkedin: "Conecta amb mi", cv: "Perfil acadèmic",
+          conf: "La meva conferència", chair: "Modera", contact: "Coneix-me", email: "Escriu-me", linkedin: "Connecta amb mi", cv: "Perfil acadèmic",
           atCongress: "Al congrés", programme: "Programa (Circular 4)", proceedings: "Llibre d’actes", soon: "properament", web: "Web del congrés",
           welcome: "Benvinguda al congrés", welcomeText: "Escaneja el codi QR d’una acreditació per veure el perfil de la persona." },
     es: { and: "y", date: S.date || "", congress: "XI Congreso de Geografía de los Servicios de la AGE", nav: "Idioma",
