@@ -18,6 +18,7 @@ html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-
 .label{margin:0;font-size:12px;font-weight:700;letter-spacing:.08em;line-height:16px;text-transform:uppercase;color:var(--teal)}
 .kind{margin:0;font-size:13px;line-height:18px;color:var(--muted)}
 .title{margin:0;font-size:18px;font-weight:700;line-height:24px}
+.authors{margin:0;font-size:13px;line-height:18px;color:var(--muted)}
 .comm{display:flex;flex-direction:column;gap:8px}
 .comm+.comm{border-top:1px solid var(--line);padding-top:14px}
 .tag{align-self:flex-start;padding:3px 9px;border-radius:999px;background:var(--chip);color:var(--teal);font-size:12px;font-weight:600;line-height:16px}

@@ -4,19 +4,19 @@
 (function () {
   const S = window.SITE || {};
   const UI = {
-    ca: { date: S.date || "", congress: "XI Congrés de Geografia dels Serveis de l’AGE", nav: "Idioma",
+    ca: { and: "i", date: S.date || "", congress: "XI Congrés de Geografia dels Serveis de l’AGE", nav: "Idioma",
           roles: { organitzador: "Comitè organitzador", cientific: "Comitè científic", ponent: "Ponent", assistent: "Assistent" },
           talk1: "La meva comunicació", talkN: "Les meves comunicacions", lead: "Autoria principal", coauthor: "Coautoria",
           conf: "La meva conferència", chair: "Modera", contact: "Contacte", email: "Escriu-me", linkedin: "LinkedIn", cv: "Perfil acadèmic",
           atCongress: "Al congrés", programme: "Programa (Circular 4)", proceedings: "Llibre d’actes", soon: "properament", web: "Web del congrés",
           welcome: "Benvinguda al congrés", welcomeText: "Escaneja el codi QR d’una acreditació per veure el perfil de la persona." },
-    es: { date: S.date || "", congress: "XI Congreso de Geografía de los Servicios de la AGE", nav: "Idioma",
+    es: { and: "y", date: S.date || "", congress: "XI Congreso de Geografía de los Servicios de la AGE", nav: "Idioma",
           roles: { organitzador: "Comité organizador", cientific: "Comité científico", ponent: "Ponente", assistent: "Asistente" },
           talk1: "Mi comunicación", talkN: "Mis comunicaciones", lead: "Autoría principal", coauthor: "Coautoría",
           conf: "Mi conferencia", chair: "Modera", contact: "Contacto", email: "Escríbeme", linkedin: "LinkedIn", cv: "Perfil académico",
           atCongress: "En el congreso", programme: "Programa (Circular 4)", proceedings: "Libro de actas", soon: "próximamente", web: "Web del congreso",
           welcome: "Bienvenida al congreso", welcomeText: "Escanea el código QR de una acreditación para ver el perfil de la persona." },
-    en: { date: S.dateEn || S.date || "", congress: "11th AGE Congress on the Geography of Services", nav: "Language",
+    en: { and: "and", date: S.dateEn || S.date || "", congress: "11th AGE Congress on the Geography of Services", nav: "Language",
           roles: { organitzador: "Organising committee", cientific: "Scientific committee", ponent: "Speaker", assistent: "Attendee" },
           talk1: "My paper", talkN: "My papers", lead: "Lead author", coauthor: "Co-author",
           conf: "My lecture", chair: "Chaired by", contact: "Contact", email: "Email me", linkedin: "LinkedIn", cv: "Academic profile",
@@ -38,6 +38,7 @@
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const pick = (v, L) => (v && typeof v === "object") ? (v[L] || v.ca || "") : (v || "");
   const okUrl = u => /^https?:\/\//i.test(u || "");
+  const joinList = (xs, and) => xs.length < 2 ? xs.join("") : xs.slice(0, -1).join(", ") + " " + and + " " + xs[xs.length - 1];
 
   function congressCard(L) {
     const t = UI[L];
@@ -58,7 +59,8 @@
     if (d.lloc) rows += "<li>" + ICON.pin + "<span>" + esc(d.lloc) + "</span></li>";
     if (d.sessio) rows += "<li>" + ICON.layers + "<span>" + esc(pick(d.sessio, L)) + "</span></li>";
     if (d.modera) rows += "<li>" + ICON.user + "<span>" + esc(t.chair) + " " + esc(d.modera) + "</span></li>";
-    return '<article class="comm"><h3 class="title">' + esc(c.titol) + "</h3>" +
+    const autors = d.autors && d.autors.length ? '<p class="authors">' + esc(joinList(d.autors, t.and)) + (d.afiliacio ? " (" + esc(d.afiliacio) + ")" : "") + "</p>" : "";
+    return '<article class="comm"><h3 class="title">' + esc(c.titol) + "</h3>" + autors +
       '<span class="tag">' + esc(c.autoria === "principal" ? t.lead : t.coauthor) + "</span>" +
       (rows ? '<ul class="rows">' + rows + "</ul>" : "") +
       (d.paraules && d.paraules.length ? '<ul class="kw">' + d.paraules.map(w => "<li>" + esc(w) + "</li>").join("") + "</ul>" : "") +
