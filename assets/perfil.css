@@ -42,3 +42,40 @@ footer{margin-top:auto;background:#fff;padding:22px 20px 26px;display:flex;flex-
 .logos{display:flex;align-items:center;gap:22px}
 .logos img{display:block;height:28px;width:auto}
 footer p{margin:0;font-size:12px;line-height:16px;color:var(--muted);text-align:center}
+/* ── Entrada animada: flor de Barcelona → XI → logotip (≈3 s) ─────────────
+   La crea perfil.js en obrir qualsevol pàgina. Es desactiva amb "intro": false a config.js.
+   Un toc (o una tecla) la salta. Amb «reduir moviment» actiu no es mostra. */
+html:not(.xi-llest) body::before{content:"";position:fixed;top:0;right:0;bottom:0;left:0;z-index:9999;background:#fff;animation:xi-tapa 0s 4s forwards}
+@keyframes xi-tapa{to{visibility:hidden}}
+@media (prefers-reduced-motion:reduce){html:not(.xi-llest) body::before{content:none}}
+html.xi-actiu,html.xi-actiu body{overflow:hidden}
+#xi-intro{position:fixed;top:0;right:0;bottom:0;left:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;animation:xi-fora .35s ease-in 2.65s forwards}
+#xi-intro.xi-salta{animation:xi-salta .25s ease-in forwards}
+@keyframes xi-fora{to{opacity:0;visibility:hidden}}
+@keyframes xi-salta{from{opacity:1}to{opacity:0;visibility:hidden}}
+.xi-lk{position:relative;flex:none;width:min(86vw,560px);height:calc(min(86vw,560px)*0.31877)}
+.xi-lk svg{position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible}
+.xi-mk{position:absolute;top:0;left:0;width:47.621%;height:100%;animation:xi-mk .5s cubic-bezier(.65,0,.35,1) 1.35s both}
+.xi-fl,.xi-ii{position:absolute;top:0;height:100%}
+.xi-fl{left:0;width:65.409%;animation:xi-fl .7s cubic-bezier(.22,.61,.36,1) both}
+.xi-ii{left:67.785%;width:32.215%;animation:xi-gap 1.15s linear both}
+.xi-ii svg{transform-origin:50% 50%;animation:xi-roda .7s cubic-bezier(.22,.61,.36,1) both}
+.xi-lk .xi-tx{left:52.195%;width:47.805%;fill:#002D69}
+@keyframes xi-mk{from{transform:translateX(54.996%) scale(1.3)}to{transform:translateX(0) scale(1)}}
+@keyframes xi-fl{from{transform:translateX(-75vw)}to{transform:translateX(0)}}
+@keyframes xi-gap{0%,74%{transform:translateX(59.207%);animation-timing-function:cubic-bezier(.65,0,.35,1)}100%{transform:translateX(0)}}
+@keyframes xi-roda{from{transform:translateX(75vw) rotate(200deg)}to{transform:translateX(0) rotate(0deg)}}
+.xi-r{fill:#002D69;animation:xi-r .35s ease 1.3s both}
+@keyframes xi-r{to{fill:#B8C3D5}}
+.xi-lt{animation:xi-lt .3s ease .62s both}
+@keyframes xi-lt{to{opacity:0}}
+.xi-l{fill:none;stroke:#002D69;stroke-width:21px;stroke-linecap:round}
+.xi-lx{stroke-dasharray:183.13px 400px;animation:xi-lx .3s cubic-bezier(.4,0,.2,1) 1.1s both}
+.xi-li{stroke-dasharray:155.44px 400px;animation:xi-li .3s cubic-bezier(.4,0,.2,1) 1.1s both}
+@keyframes xi-lx{from{stroke-dashoffset:205.63px}to{stroke-dashoffset:0}}
+@keyframes xi-li{from{stroke-dashoffset:177.94px}to{stroke-dashoffset:0}}
+.xi-pt{fill:#002D69;transform-box:fill-box;transform-origin:50% 50%;animation:xi-pt .5s linear 1s both}
+@keyframes xi-pt{0%{transform:scale(0)}27%{transform:scale(1.2)}40%,73%{transform:scale(1)}100%{transform:scale(0)}}
+.xi-t{animation:xi-t .4s cubic-bezier(.22,.61,.36,1) both}
+.xi-t:nth-child(1){animation-delay:1.62s}.xi-t:nth-child(2){animation-delay:1.69s}.xi-t:nth-child(3){animation-delay:1.76s}
+@keyframes xi-t{from{opacity:0;transform:translateX(50px)}to{opacity:1;transform:translateX(0)}}
