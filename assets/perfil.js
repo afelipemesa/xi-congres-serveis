@@ -2,6 +2,7 @@
    Les dades de cada persona són dins del seu fitxer p/<codi>/index.html (bloc «persona»).
    La configuració comuna (programa, llibre d'actes, mostrar CV) és a assets/config.js. */
 /* Entrada animada (≈3 s): les flors de Barcelona formen el XI i apareix el logotip en català.
+   No es pot saltar; desapareix sola en acabar i llavors es veu el perfil.
    Estils a perfil.css (apartat «Entrada animada»). Es desactiva amb "intro": false a config.js. */
 (function () {
   var root = document.documentElement;
@@ -15,19 +16,14 @@
   document.body.appendChild(el);
   if (getComputedStyle(el).position !== "fixed") { el.parentNode.removeChild(el); root.classList.add("xi-llest"); return; } /* perfil.css antic a la memòria cau */
   root.classList.add("xi-llest", "xi-actiu");
-  var acabat = false, inici = Date.now();
-  function salta() { if (Date.now() - inici < 2600) el.classList.add("xi-salta"); }
+  var acabat = false;
   function acaba() {
     if (acabat) return;
     acabat = true;
-    document.removeEventListener("keydown", salta);
     if (el.parentNode) el.parentNode.removeChild(el);
     root.classList.remove("xi-actiu");
   }
   el.addEventListener("animationend", function (e) { if (e.target === el) acaba(); });
-  el.addEventListener("pointerdown", salta);
-  el.addEventListener("click", salta);
-  document.addEventListener("keydown", salta);
   setTimeout(acaba, 5000);
 })();
 (function () {
