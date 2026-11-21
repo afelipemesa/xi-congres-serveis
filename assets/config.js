@@ -1,7 +1,7 @@
 /* Configuración común de la web. Se puede editar desde GitHub.
    proceedings  enlace al llibre d'actes cuando esté publicado
    showCv       false oculta LinkedIn y perfil académico en todos los perfiles
-   intro        false quita la animación de entrada (flor de Barcelona → XI → logotipo, ≈3 s) */
+   intro        false quita la animación de entrada (flor de Barcelona → XI → logotipo → patrocinadores, ≈4 s) */
 window.SITE = {
   "date": "25–27 nov. 2026 · Bellaterra",
   "dateEn": "25–27 Nov 2026 · Bellaterra",
