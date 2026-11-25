@@ -36,19 +36,19 @@
           roles: { organitzador: "Comitè organitzador", cientific: "Comitè científic", ponent: "Ponent", assistent: "Assistent" },
           talk1: "La meva comunicació", talkN: "Les meves comunicacions", lead: "Autoria principal", coauthor: "Coautoria",
           conf: "La meva conferència", chair: "Modera", contact: "Coneix-me", email: "Escriu-me", linkedin: "Connecta amb mi", cv: "Perfil acadèmic",
-          atCongress: "Al congrés", programme: "Programa (Circular 4)", proceedings: "Llibre d’actes", soon: "properament", web: "Web del congrés",
+          atCongress: "Al congrés", programme: "Programa definitiu", proceedings: "Llibre d’actes", soon: "properament", web: "Web del congrés",
           welcome: "Benvinguda al congrés", welcomeText: "Escaneja el codi QR d’una acreditació per veure el perfil de la persona." },
     es: { and: "y", date: S.date || "", congress: "XI Congreso de Geografía de los Servicios de la AGE", nav: "Idioma",
           roles: { organitzador: "Comité organizador", cientific: "Comité científico", ponent: "Ponente", assistent: "Asistente" },
           talk1: "Mi comunicación", talkN: "Mis comunicaciones", lead: "Autoría principal", coauthor: "Coautoría",
           conf: "Mi conferencia", chair: "Modera", contact: "Conóceme", email: "Escríbeme", linkedin: "Conecta conmigo", cv: "Perfil académico",
-          atCongress: "En el congreso", programme: "Programa (Circular 4)", proceedings: "Libro de actas", soon: "próximamente", web: "Web del congreso",
+          atCongress: "En el congreso", programme: "Programa definitivo", proceedings: "Libro de actas", soon: "próximamente", web: "Web del congreso",
           welcome: "Bienvenida al congreso", welcomeText: "Escanea el código QR de una acreditación para ver el perfil de la persona." },
     en: { and: "and", date: S.dateEn || S.date || "", congress: "11th AGE Congress on the Geography of Services", nav: "Language",
           roles: { organitzador: "Organising committee", cientific: "Scientific committee", ponent: "Speaker", assistent: "Attendee" },
           talk1: "My paper", talkN: "My papers", lead: "Lead author", coauthor: "Co-author",
           conf: "My lecture", chair: "Chaired by", contact: "Get to know me", email: "Email me", linkedin: "Connect with me", cv: "Academic profile",
-          atCongress: "At the congress", programme: "Programme (4th circular)", proceedings: "Proceedings", soon: "coming soon", web: "Congress website",
+          atCongress: "At the congress", programme: "Final programme", proceedings: "Proceedings", soon: "coming soon", web: "Congress website",
           welcome: "Welcome to the congress", welcomeText: "Scan the QR code on a badge to see that person’s profile." }
   };
 
